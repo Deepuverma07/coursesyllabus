@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display PDF on Button Click</title>
+</head>
+<body>
+    <h1>Display PDF on Button Click</h1>
+    <button onclick="displayPDF()">Open PDF</button>
+    <br>
+    <iframe id="pdfFrame" width="100%" height="500"></iframe>
+
+    <script>
+        function displayPDF() {
+            const pdfFrame = document.getElementById('pdfFrame');
+            pdfFrame.src = 'Msc Cse Syllabus.pdf'; // Replace with the actual PDF file path or URL
+        }
+    </script>
+    
+</body>
+</html>

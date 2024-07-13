@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show PDF on Option Click</title>
+</head>
+<body>
+    <h1>Show PDF on Option Click</h1>
+    <form>
+        <label for="options">Select an option:</label>
+        <select id="options" onchange="showOption()">
+            <option value="none" disabled selected>Select an option</option>
+            <option value="showSecond">Show Second Option</option>
+            <option value="showPDF">Show PDF</option>
+        </select>
+    </form>
+    <div id="secondOption" style="display: none;">
+        <p>This is the second option.</p>
+    </div>
+    <iframe id="pdfFrame" src="" width="100%" height="500" style="display: none;"></iframe>
+
+    <script>
+        function showOption() {
+            const select = document.getElementById('options');
+            const secondOptionDiv = document.getElementById('secondOption');
+            const pdfFrame = document.getElementById('pdfFrame');
+            const selectedOption = select.options[select.selectedIndex].value;
+
+            if (selectedOption === 'showSecond') {
+                secondOptionDiv.style.display = 'block';
+                pdfFrame.style.display = 'none';
+            } else if (selectedOption === 'showPDF') {
+                secondOptionDiv.style.display = 'none';
+                pdfFrame.style.display = 'block';
+                // Replace 'your-pdf-file.pdf' with the actual path or URL of your PDF file
+                pdfFrame.src = 'Msc Cse Syllabus.pdf';
+            } else {
+                secondOptionDiv.style.display = 'none';
+                pdfFrame.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
